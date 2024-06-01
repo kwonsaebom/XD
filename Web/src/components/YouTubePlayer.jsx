@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const YouTubePlayer = () => {
   let player;
   const [cnt, setCnt] = useState(0);
-  const timeoutIdRef = useRef(null);
+  const intervalIdRef = useRef(null);
 
   useEffect(() => {
     const tag = document.createElement('script');
@@ -36,15 +36,15 @@ const YouTubePlayer = () => {
 
   const onPlayerStateChange = (event) => {
     if (event.data === window.YT.PlayerState.PLAYING) {
-      timeoutIdRef.current = setTimeout(() => {
+      intervalIdRef.current = setInterval(() => {
         const currentTime = player.getCurrentTime();
         const duration = player.getDuration();
         if (currentTime / duration > 0.5) {
           setCnt((cnt) => cnt + 1);
+          clearInterval(intervalIdRef.current);
         }
-      }, 500); // 0.5초마다 확인
-    } else {
-      clearTimeout(timeoutIdRef.current);
+        return;
+      }, 1000);
     }
   };
 
