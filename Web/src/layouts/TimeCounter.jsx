@@ -8,24 +8,30 @@ import { StopModal } from '../components/StopModal';
 import xcy_concentraiton from '../assets/images/xcy_concentrait.png';
 import xcy_lowstress from '../assets/images/xcy_lowstress.png';
 import xcy_strong from '../assets/images/xcy_strong.png';
+import xcy_concentraiton_gray from '../assets/images/xcy_concentrait_gray.png';
+import xcy_lowstress_gray from '../assets/images/xcy_lowstress_gray.png';
+import xcy_strong_gray from '../assets/images/xcy_strong_gray.png';
 
 const characters = [
   {
     src: xcy_concentraiton,
+    src_gray: xcy_concentraiton_gray,
     name: '집중력 향상',
   },
   {
     src: xcy_lowstress,
+    src_gray: xcy_lowstress_gray,
     name: '스트레스 감소',
   },
   {
     src: xcy_strong,
+    src_gray: xcy_strong_gray,
     name: '통제력 강화',
   },
 ];
 
 export const TimeCounter = () => {
-  const formdone = false;
+  const formdone = true;
   const [time, setTime] = useState(new Date('2024-06-02 09:00:00') - new Date());
   const [fulltime] = useState(new Date('2024-06-02 09:00:00') - new Date('2024-06-01 10:00:00'));
   const [times, setTimes] = useState([0, 0, 0]);
@@ -99,7 +105,7 @@ export const TimeCounter = () => {
           {characters.map((character) => {
             return (
               <div>
-                <img src={character.src} alt={character.name} />
+                <img src={formdone ? character.src : character.src_gray} alt={character.name} />
                 <p>{character.name}</p>
               </div>
             );
@@ -161,10 +167,10 @@ const StopButton = styled.button`
   justify-content: center;
   align-items: center;
   margin-top: 28px;
-  background: ${(props) => props.theme.colors.gray1};
+  background: ${(props) => (props.start ? props.theme.colors.primary : props.theme.colors.gray1)};
   border-radius: 17px;
-  font: ${(props) => (props.start ? props.theme.colors.primary : props.theme.colors.gray3)};
-  color: ${(props) => (props.start ? props.theme.colors.primary : props.theme.colors.gray3)};
+  font: ${(props) => props.theme.fonts.button2};
+  color: ${(props) => (props.start ? props.theme.colors.black : props.theme.colors.gray3)};
   border: none;
   cursor: pointer;
 `;

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import close from '../assets/images/close24.png';
@@ -106,8 +105,8 @@ const Youtubeshort = ({ gotohome }) => {
         <Top>
           <Goal2>
             <span>{currentProgress}</span>/{maxProgress}
-            <Img2 src={close} alt="Close" onClick={gotohome}></Img2>
           </Goal2>
+          <Img2 src={close} alt="Close" onClick={gotohome}></Img2>
         </Top>
         <ProgressBarContainer2>
           <ProgressBar style={{ width: `${Math.max((currentProgress / maxProgress) * 100, 1)}%` }} />
@@ -126,9 +125,11 @@ const Youtubeshort2 = ({ gotohome }) => {
     <HomeContainer2>
       <Top>
         <Goal2>
-          <span>{currentProgress}</span>/{maxProgress}
-          <Img2 src={close} alt="Close" onClick={gotohome}></Img2>
+          <div>
+            <span>{currentProgress}</span>/{maxProgress}
+          </div>
         </Goal2>
+        <Img2 src={close} alt="Close" onClick={gotohome}></Img2>
       </Top>
       <ProgressBarContainer2>
         <ProgressBar style={{ width: `${Math.max((currentProgress / maxProgress) * 100, 1)}%` }} />
@@ -148,7 +149,7 @@ const HomeContainer = styled.div`
   margin: 0;
   padding: 0 16px;
   max-height: 812px;
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -242,6 +243,10 @@ const HomeContainer2 = styled.div`
 
 const Top = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 16px;
   height: 48px;
   background-color: #fff;
 `;
@@ -249,7 +254,7 @@ const Top = styled.div`
 const Goal2 = styled.div`
   display: flex;
   align-items: center;
-  margin: 13px 0 0 16px;
+  /* margin: 13px 0 0 16px; */
   font: ${(props) => props.theme.fonts.h4};
   color: #7f828c;
 
@@ -260,11 +265,12 @@ const Goal2 = styled.div`
 `;
 
 const Img2 = styled.img`
-  position: fixed;
+  /* position: fixed; */
   right: 16px;
   width: 24px;
   height: 24px;
   z-index: 5;
+  margin-right: 16px;
 `;
 
 const ProgressBarContainer2 = styled.div`
