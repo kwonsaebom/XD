@@ -1,14 +1,15 @@
-import { exampleApi } from '../apis/example';
+import  { exampleApi }  from '../apis/example';
 import React, { useEffect } from 'react';
 
 export const Example = () => {
+
   useEffect(() => {
-    exampleApi();
+    // exampleApi();
   }, []);
 
   return (
     <div>
-      <h1>Example</h1>
+      <h1>example</h1>
     </div>
   );
 };

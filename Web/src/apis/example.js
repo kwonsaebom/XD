@@ -1,4 +1,4 @@
-import { baseAPI } from './customApi';
+import { baseAPI } from './baseapi';
 
 export const exampleApi = async (params) => {
   try {
