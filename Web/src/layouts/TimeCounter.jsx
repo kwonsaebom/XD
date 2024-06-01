@@ -5,24 +5,28 @@ import styled from 'styled-components';
 import ProgressProvider from '../components/ProgressProvider';
 import { TimerSuccess } from '../components/TimerSuccess';
 import { StopModal } from '../components/StopModal';
+import xcy_concentraiton from '../assets/images/xcy_concentrait.png';
+import xcy_lowstress from '../assets/images/xcy_lowstress.png';
+import xcy_strong from '../assets/images/xcy_strong.png';
+
 const characters = [
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_concentraiton,
     name: '집중력 향상',
   },
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_lowstress,
     name: '스트레스 감소',
   },
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_strong,
     name: '통제력 강화',
   },
 ];
 
 export const TimeCounter = () => {
-  const [time, setTime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-31 8:00:00'));
-  const [fulltime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-30 23:00:00'));
+  const [time, setTime] = useState(new Date('2024-06-02 09:00:00') - new Date());
+  const [fulltime] = useState(new Date('2024-06-02 09:00:00') - new Date('2024-06-01 10:00:00'));
   const [times, setTimes] = useState([0, 0, 0]);
   const [completeModal, setCompleteModal] = useState(false);
   const [stopModal, setStopModal] = useState(false);
@@ -83,7 +87,7 @@ export const TimeCounter = () => {
             ).padStart(2, '0')}`}</div>
           </TextinBar>
         </ProgressBar>
-        <StopButton>중도포기하기</StopButton>
+        <StopButton onClick={() => setStopModal(true)}>중도포기하기</StopButton>
       </Box>
       <Box>
         <Character>
@@ -100,7 +104,6 @@ export const TimeCounter = () => {
       {completeModal && <TimerSuccess onClose={SetCompleteModalfalse} />}
       {stopModal && <StopModal onClose={SetStopModalfalse} />}
       <button onClick={() => setCompleteModal(true)}>모달 열기</button>
-      <button onClick={() => setStopModal(true)}>모달 열기</button>
     </div>
   );
 };
@@ -166,17 +169,17 @@ const Character = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 38px;
   div {
     height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    margin: 0 19px;
     img {
-      width: 58px;
+      width: 77px;
       height: 58px;
       border-radius: 50%;
+      margin-bottom: 6px;
     }
     p {
       font: ${(props) => props.theme.fonts.b2};
