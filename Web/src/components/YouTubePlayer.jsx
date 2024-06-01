@@ -49,6 +49,18 @@ const YouTubePlayer = () => {
       width: '1000px',
       height: '542px',
       videoId: url,
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        disablekb: 1,
+        enablejsapi: 1,
+        fs: 0,
+        iv_load_policy: 3,
+        modestbranding: 1,
+        rel: 0,
+        showinfo: 0,
+      },
       events: {
         onReady: onPlayerReady,
         onStateChange: onPlayerStateChange,

@@ -25,6 +25,7 @@ const characters = [
 ];
 
 export const TimeCounter = () => {
+  const formdone = false;
   const [time, setTime] = useState(new Date('2024-06-02 09:00:00') - new Date());
   const [fulltime] = useState(new Date('2024-06-02 09:00:00') - new Date('2024-06-01 10:00:00'));
   const [times, setTimes] = useState([0, 0, 0]);
@@ -87,7 +88,11 @@ export const TimeCounter = () => {
             ).padStart(2, '0')}`}</div>
           </TextinBar>
         </ProgressBar>
-        <StopButton onClick={() => setStopModal(true)}>중도포기하기</StopButton>
+        {formdone ? (
+          <StopButton onClick={() => setStopModal(true)}>중도포기하기</StopButton>
+        ) : (
+          <StopButton start>바로 시작하기</StopButton>
+        )}
       </Box>
       <Box>
         <Character>
@@ -158,8 +163,8 @@ const StopButton = styled.button`
   margin-top: 28px;
   background: ${(props) => props.theme.colors.gray1};
   border-radius: 17px;
-  font: ${(props) => props.theme.fonts.button2};
-  color: ${(props) => props.theme.colors.gray3};
+  font: ${(props) => (props.start ? props.theme.colors.primary : props.theme.colors.gray3)};
+  color: ${(props) => (props.start ? props.theme.colors.primary : props.theme.colors.gray3)};
   border: none;
   cursor: pointer;
 `;
