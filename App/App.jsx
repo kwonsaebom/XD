@@ -4,13 +4,13 @@ import WebViewScreen from './src/screens/WebViewScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function App() {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState('sss');
 
   useEffect(() => {
     const getData = async () => {
       try {
         const userId = await AsyncStorage.getItem('userId');
-        if (value) {
+        if (userId) {
           setUserId(userId);
         }
       } catch (error) {

@@ -6,15 +6,16 @@ const WebViewScreen = ({ userId }) => {
   const webviewRef = useRef(null);
 
   useEffect(() => {
-    if (webviewRef.current) {
+    if (webviewRef.current && userId !== '') {
       const script = `
         (function() {
-          document.dispatchEvent(new MessageEvent('message', { data: ${userId})} }));
+          const event = new MessageEvent('message', { data: '${userId}' });
+          document.dispatchEvent(event);
         })();
       `;
       webviewRef.current.injectJavaScript(script);
     }
-  }, [isLoggedIn]);
+  }, [userId]);
 
   const handleMessage = async (event) => {
     try {
@@ -34,11 +35,11 @@ const WebViewScreen = ({ userId }) => {
     <View style={styles.container}>
       <WebView
         ref={webviewRef}
-        source={{ uri: 'http://localhost:3000/' }}
+        source={{ uri: '10.0.2.2:3000' }}
         style={styles.webview}
         startInLoadingState={true}
         originWhitelist={['http://*', 'https://*', 'intent://*']}
-        renderLoading={() => <ActivityIndicator color="blue" size="large" />}
+        // renderLoading={() => <ActivityIndicator color="blue" size="large" />}
         onMessage={handleMessage}
       />
     </View>
