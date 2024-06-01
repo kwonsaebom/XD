@@ -1,7 +1,11 @@
 import React from 'react'
+import OnCategory from './OnCategory';
 
 export const OnBoarding = () => {
   return (
-    <div>OnBoarding</div>
+    <div>
+      <OnCategory/>
+    </div>
   )
 }
+
