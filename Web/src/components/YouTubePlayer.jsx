@@ -47,7 +47,7 @@ const YouTubePlayer = () => {
   const initializePlayer = () => {
     playerRef.current = new window.YT.Player('player', {
       width: '1000px',
-      height: '542px',
+      height: '700px',
       videoId: url,
       playerVars: {
         autoplay: 1,

@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useStore } from '../store/store';
-
+import pro from '../assets/images/pro.png';
+import bronze from '../assets/images/bronze.png';
 export const Mypage = () => {
   // const userId = useStore((state) => state.userId);
   const userId = 'sunho329';
@@ -9,7 +10,8 @@ export const Mypage = () => {
   return (
     <Container>
       <ProfileWrapper>
-        <Character />
+        <Character src={pro} />
+        <img className="bronze" src={bronze} alt="hh" />
         <H1>
           안녕하세요 <br />
           {`${userId}님`}
@@ -55,14 +57,22 @@ const Container = styled.div`
 `;
 
 const ProfileWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
+  .bronze {
+    position: absolute;
+    left: 57px;
+    bottom: 13px;
+    width: 24px;
+    height: 28px;
+  }
 `;
 
-const Character = styled.div`
+const Character = styled.img`
   width: 74px;
   height: 74px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 `;
 
 const H1 = styled.p`
