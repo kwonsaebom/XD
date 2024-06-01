@@ -173,6 +173,7 @@ const Img2 = styled.img`
   width: 24px;
   height: 24px;
   margin-left: 291px;
+  z-index: 5;
 `;
 
 const ProgressBarContainer2 = styled.div`

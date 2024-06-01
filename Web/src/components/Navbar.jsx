@@ -41,6 +41,7 @@ const Nav = styled.nav`
   padding: 10px 0;
   display: inline-flex;
   align-items: flex-start;
+  z-index: 5;
 `;
 
 const StyledLink = styled(NavLink)`
