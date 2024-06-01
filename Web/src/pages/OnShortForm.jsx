@@ -61,11 +61,14 @@ export const OnShortForm = () => {
           50개
         </SelectCount>
       </ButtonContainer>
-      <Add>숏폼 제한개수는 매일 다시 설정할 수 있어요</Add>
-      <NavigationButtons>
-        <Pre onClick={handlePreClick}>이전</Pre>
-        <Next onClick={handleNextClick}>다음</Next>
-      </NavigationButtons>
+      <Spacer />
+      <BottomContainer>
+        <Add>숏폼 제한개수는 매일 다시 설정할 수 있어요</Add>
+        <NavigationButtons>
+          <Pre onClick={handlePreClick}>이전</Pre>
+          <Next onClick={handleNextClick}>다음</Next>
+        </NavigationButtons>
+      </BottomContainer>
     </Container>
   );
 };
@@ -73,8 +76,13 @@ export const OnShortForm = () => {
 export default OnShortForm;
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 const Order = styled.div`
@@ -100,13 +108,14 @@ const GrayLine = styled(Line)`
 
 const Title = styled.div`
   font: ${(props) => props.theme.fonts.h1};
-  padding-top: 40px;
+  padding-top: 30px;
 `;
 
 const BoxContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  margin-bottom: 50px;
 `;
 
 const Button = styled.button`
@@ -165,7 +174,6 @@ const SelectCount = styled.button`
 `;
 
 const Add = styled.div`
-  margin-top: 280px;
   text-align: center;
   color: ${(props) => props.theme.colors.gray4};
 `;
@@ -207,4 +215,16 @@ const Next = styled.button`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
   }
+`;
+
+const Spacer = styled.div`
+  flex-grow: 1;
+`;
+
+const BottomContainer = styled.div`
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;

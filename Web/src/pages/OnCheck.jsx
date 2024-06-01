@@ -47,11 +47,14 @@ export const OnCheck = () => {
           <CheckCount>3가지</CheckCount>
         </Box>
       </BoxContainer>
-      <Add>한 번 입력한 설정값은 내일까지 바꿀 수 없어요</Add>
-      <NavigationButtons>
-        <Pre onClick={handlePreClick}>이전</Pre>
-        <Next onClick={handleNextClick}>다음</Next>
-      </NavigationButtons>
+      <Spacer />
+      <BottomContainer>
+        <Add>한 번 입력한 설정값은 내일까지 바꿀 수 없어요</Add>
+        <NavigationButtons>
+          <Pre onClick={handlePreClick}>이전</Pre>
+          <Next onClick={handleNextClick}>다음</Next>
+        </NavigationButtons>
+      </BottomContainer>
     </Container>
   );
 };
@@ -59,8 +62,13 @@ export const OnCheck = () => {
 export default OnCheck;
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 const Order = styled.div`
@@ -89,6 +97,7 @@ const Title = styled.div`
   padding-top: 30px;
   margin-bottom: 40px;
 `;
+
 const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -111,6 +120,7 @@ const Box = styled.div`
   background-color: ${(props) => props.theme.colors.gray1};
   margin-bottom: 10px; /* 박스 사이에 아래쪽 마진 추가 */
 `;
+
 const CheckTitle = styled.div`
   font-size: 16px;
 `;
@@ -121,7 +131,6 @@ const CheckCount = styled.div`
 `;
 
 const Add = styled.div`
-  margin-top: 120px;
   text-align: center;
   color: ${(props) => props.theme.colors.gray4};
 `;
@@ -163,4 +172,16 @@ const Next = styled.button`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
   }
+`;
+
+const Spacer = styled.div`
+  flex-grow: 1;
+`;
+
+const BottomContainer = styled.div`
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;

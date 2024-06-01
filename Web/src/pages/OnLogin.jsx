@@ -55,18 +55,25 @@ export const OnLogin = () => {
           <Input type="password" placeholder="비밀번호를 한번 더 입력해 주세요" />
         </InputContainer>
       </LoginContainer>
-
-      <NavigationButtons>
-        <Pre onClick={handlePreClick}>이전</Pre>
-        <Next onClick={handleNextClick}>시작하기</Next>
-      </NavigationButtons>
+      <Spacer />
+      <BottomContainer>
+        <NavigationButtons>
+          <Pre onClick={handlePreClick}>이전</Pre>
+          <Next onClick={handleNextClick}>시작하기</Next>
+        </NavigationButtons>
+      </BottomContainer>
     </Container>
   );
 };
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  min-height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 const Order = styled.div`
@@ -104,17 +111,15 @@ const LoginContainer = styled.div`
 
 const InputContainer = styled.div`
   margin-top: 20px;
-  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   width: 100%;
 `;
 
 const Label = styled.label`
   font: ${(props) => props.theme.fonts.h2};
-  width: 100px; /* 라벨의 고정 너비 설정 */
-  text-align: left; /* 텍스트를 왼쪽 정렬 */
+  width: 100px;
+  text-align: left;
 `;
 
 const CustomInput = styled.input`
@@ -167,7 +172,6 @@ const NavigationButtons = styled.div`
   display: flex;
   justify-content: space-between;
   width: 90%;
-  margin-top: 250px;
 `;
 
 const Pre = styled.button`
@@ -200,4 +204,19 @@ const Next = styled.button`
     background-color: ${(props) => props.theme.colors.primary};
     color: white;
   }
+`;
+
+const Spacer = styled.div`
+  flex-grow: 1;
+  margin-bottom: 20px;
+`;
+
+const BottomContainer = styled.div`
+  padding-top: auto;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
 `;

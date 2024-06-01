@@ -29,8 +29,11 @@ const OnCategory = () => {
         <Category />
         <Category />
       </CategoryContainer>
-      <Add>관심 카테고리는 매일 다시 선택할 수 있어요</Add>
-      <Next onClick={handleNextClick}>다음</Next>
+      <Spacer />
+      <BottomContainer>
+        <Add>관심 카테고리는 매일 다시 선택할 수 있어요</Add>
+        <Next onClick={handleNextClick}>다음</Next>
+      </BottomContainer>
     </Container>
   );
 };
@@ -39,8 +42,13 @@ export default OnCategory;
 
 // Styled Components
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
+  height: 100vh;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 const LineContainer = styled.div`
@@ -82,14 +90,19 @@ const SubTitle = styled.div`
 `;
 
 const Add = styled.div`
-  margin-top: 380px;
-  margin-bottom: 10px;
   text-align: center;
   color: ${(props) => props.theme.colors.gray4};
+  margin-bottom: 20px;
+`;
+
+const NextContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 const Next = styled.button`
-  width: 100%;
+  width: 90%;
   height: 50px;
   background-color: ${(props) => props.theme.colors.gray1};
   border: none;
@@ -99,4 +112,16 @@ const Next = styled.button`
   &:hover {
     background-color: ${(props) => props.theme.colors.primary};
   }
+`;
+
+const Spacer = styled.div`
+  flex-grow: 1;
+`;
+
+const BottomContainer = styled.div`
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `;
