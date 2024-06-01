@@ -8,11 +8,11 @@ export const OnLogin = () => {
   const [username, setUsername] = useState('');
 
   const handlePreClick = () => {
-    navigate('/');
+    navigate('/onboard');
   };
 
   const handleNextClick = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   const handleCheckUsername = () => {

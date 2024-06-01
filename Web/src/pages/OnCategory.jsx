@@ -7,7 +7,7 @@ const OnCategory = () => {
   const navigate = useNavigate();
 
   const handleNextClick = () => {
-    navigate('/OnShortForm');
+    navigate('/onshortform');
   };
 
   return (

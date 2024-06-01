@@ -9,11 +9,11 @@ export const OnTimer = () => {
   const [selected, setSelected] = useState(null);
 
   const handleNextClick = () => {
-    navigate('/OnCheck');
+    navigate('/oncheck');
   };
 
   const handlePreClick = () => {
-    navigate('/');
+    navigate('/onboard');
   };
 
   const isNextDisabled = !hours || !minutes;

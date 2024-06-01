@@ -6,11 +6,11 @@ export const OnCheck = () => {
   const navigate = useNavigate();
 
   const handleNextClick = () => {
-    navigate('/OnLogin');
+    navigate('/onlogin');
   };
 
   const handlePreClick = () => {
-    navigate('/');
+    navigate('/onboard');
   };
 
   return (

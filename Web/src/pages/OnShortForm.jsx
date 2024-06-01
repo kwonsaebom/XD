@@ -8,11 +8,11 @@ export const OnShortForm = () => {
   const [selected, setSelected] = useState(null);
 
   const handleNextClick = () => {
-    navigate('/OnTimer');
+    navigate('/ontimer');
   };
 
   const handlePreClick = () => {
-    navigate('/');
+    navigate('/onboard');
   };
 
   const handleIncrease = () => {
