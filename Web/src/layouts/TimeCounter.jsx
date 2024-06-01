@@ -3,7 +3,8 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 import ProgressProvider from '../components/ProgressProvider';
-
+import { TimerSuccess } from '../components/TimerSuccess';
+import { StopModal } from '../components/StopModal';
 const characters = [
   {
     src: 'https://via.placeholder.com/150',
@@ -23,9 +24,12 @@ export const TimeCounter = () => {
   const [time, setTime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-31 8:00:00'));
   const [fulltime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-30 23:00:00'));
   const [times, setTimes] = useState([0, 0, 0]);
+  const [completeModal, setCompleteModal] = useState(false);
+  const [stopModal, setStopModal] = useState(false);
   const endHour = (time) => Math.floor(time / 1000 / 60 / 60);
   const endMin = (time) => Math.floor((time / 1000 / 60) % 60);
   const endSec = (time) => Math.floor((time / 1000) % 60);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(time - 1000);
@@ -33,6 +37,18 @@ export const TimeCounter = () => {
     setTimes([endHour(time), endMin(time), endSec(time)]);
     return () => clearInterval(interval);
   }, [time]);
+
+  useEffect(() => {
+    console.log(completeModal);
+  }, [completeModal]);
+
+  const SetCompleteModalfalse = () => {
+    setCompleteModal(false);
+  };
+
+  const SetStopModalfalse = () => {
+    setStopModal(false);
+  };
   return (
     <div>
       <Title>
@@ -81,6 +97,10 @@ export const TimeCounter = () => {
           })}
         </Character>
       </Box>
+      {completeModal && <TimerSuccess onClose={SetCompleteModalfalse} />}
+      {stopModal && <StopModal onClose={SetStopModalfalse} />}
+      <button onClick={() => setCompleteModal(true)}>모달 열기</button>
+      <button onClick={() => setStopModal(true)}>모달 열기</button>
     </div>
   );
 };
