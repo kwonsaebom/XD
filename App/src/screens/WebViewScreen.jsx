@@ -2,18 +2,14 @@ import { View, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { useRef, useEffect } from 'react';
 
-const WebViewScreen = ({ userId, password }) => {
+const WebViewScreen = ({ userId }) => {
   const webviewRef = useRef(null);
 
   useEffect(() => {
     if (webviewRef.current) {
-      const userData = {
-        userId,
-        password,
-      };
       const script = `
         (function() {
-          document.dispatchEvent(new MessageEvent('message', { data: ${JSON.stringify(userData)} }));
+          document.dispatchEvent(new MessageEvent('message', { data: ${userId})} }));
         })();
       `;
       webviewRef.current.injectJavaScript(script);
@@ -25,7 +21,7 @@ const WebViewScreen = ({ userId, password }) => {
       const data = event.nativeEvent.data;
 
       // AsyncStorage에 저장
-      await AsyncStorage.setItem('user', data);
+      await AsyncStorage.setItem('userId', data);
 
       Alert.alert('Success', 'User credentials saved successfully!');
     } catch (error) {

@@ -5,16 +5,13 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function App() {
   const [userId, setUserId] = useState('');
-  const [password, setPassword] = useState('');
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const value = await AsyncStorage.getItem('user');
+        const userId = await AsyncStorage.getItem('userId');
         if (value) {
-          const data = JSON.parse(value);
-          setUserId(data.userId);
-          setPassword(data.password);
+          setUserId(userId);
         }
       } catch (error) {
         console.error('Error getting data:', error);
@@ -26,7 +23,7 @@ function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <WebViewScreen userId={userId} password={password} />
+      <WebViewScreen userId={userId} />
     </SafeAreaView>
   );
 }
