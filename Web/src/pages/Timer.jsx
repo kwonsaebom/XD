@@ -13,5 +13,5 @@ export const Timer = () => {
 const Background = styled.div`
   background-color: ${(props) => props.theme.colors.gray1};
   min-height: 100vh;
-  padding: 0 16px;
+  padding: 0 16px 70px 16px;
 `;

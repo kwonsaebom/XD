@@ -25,8 +25,8 @@ const characters = [
 ];
 
 export const TimeCounter = () => {
-  const [time, setTime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-31 8:00:00'));
-  const [fulltime] = useState(new Date('2021-12-31 23:59:59') - new Date('2021-12-30 23:00:00'));
+  const [time, setTime] = useState(new Date('2024-06-02 09:00:00') - new Date());
+  const [fulltime] = useState(new Date('2024-06-02 09:00:00') - new Date('2024-06-01 10:00:00'));
   const [times, setTimes] = useState([0, 0, 0]);
   const [completeModal, setCompleteModal] = useState(false);
   const [stopModal, setStopModal] = useState(false);
