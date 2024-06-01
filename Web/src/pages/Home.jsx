@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import OnCategory from './OnCategory';
 
 export const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <OnCategory />
+    </div>
+  );
+};
