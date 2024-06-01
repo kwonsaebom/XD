@@ -1,15 +1,17 @@
 import React from 'react';
-import { useStore } from '../store/test';
+import { TimeCounter } from '../layouts/TimeCounter';
+import styled from 'styled-components';
 
 export const Timer = () => {
-  const { count, increaseCount, setThree } = useStore();
-  // const {yourState, yourAction} = useYourStore();
-  // yourAction((state) => state.yourState)
   return (
-    <div>
-      <div>Zustand ! {count}</div>
-      <button onClick={increaseCount}>+1</button>
-      <button onClick={() => setThree(3)}>set3</button>
-    </div>
+    <Background>
+      <TimeCounter />
+    </Background>
   );
 };
+
+const Background = styled.div`
+  background-color: ${(props) => props.theme.colors.gray1};
+  min-height: 100vh;
+  padding: 0 16px;
+`;

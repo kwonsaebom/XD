@@ -1,4 +1,4 @@
-import { exampleApi } from '../apis/example';
+// import { exampleApi } from '../apis/example';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
