@@ -169,17 +169,17 @@ const Character = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 38px;
   div {
     height: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    margin: 0 19px;
     img {
       width: 77px;
       height: 58px;
       border-radius: 50%;
+      margin-bottom: 6px;
     }
     p {
       font: ${(props) => props.theme.fonts.b2};

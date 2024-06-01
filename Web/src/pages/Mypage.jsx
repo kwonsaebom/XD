@@ -27,7 +27,7 @@ export const Mypage = () => {
         </Field>
       </FieldWrapper>
       <StatsWrapper>
-        <StatBox color={'secondary2'}>
+        <StatBox color={'secondary2'} time>
           <h4>
             도파민 디톡스
             <br /> 총 성공 시간
@@ -47,15 +47,15 @@ export const Mypage = () => {
 };
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  padding: 30px 16px;
+  /* width: 100%; */
+  /* padding: 30px 16px; */
   background-color: ${(props) => props.theme.colors.gray1};
+  min-height: 100vh;
+  padding: 0 16px 70px 16px;
 `;
 
 const ProfileWrapper = styled.div`
   display: flex;
-  gap: 22px;
   align-items: center;
 `;
 
@@ -66,6 +66,7 @@ const Character = styled.div`
 `;
 
 const H1 = styled.p`
+  margin-left: 22px;
   font: ${(props) => props.theme.fonts.h1};
   color: ${(props) => props.theme.colors.black};
 `;
@@ -92,12 +93,13 @@ const Field = styled.div`
 const FieldBox = styled.div`
   background-color: ${(props) => props.theme.colors.gray2};
   border-radius: 4px;
-  aspect-ratio: 1 / 1; /* 정사각형을 유지하기 위해 추가 */
+  /* aspect-ratio: 1 / 1; 정사각형을 유지하기 위해 추가 */
+  width: 16px;
+  height: 16px;
 `;
 
 const StatsWrapper = styled.div`
   display: flex;
-  gap: 13px;
   justify-content: space-between;
   background-color: ${(props) => props.theme.colors.white};
   border-radius: 16px;
@@ -113,7 +115,7 @@ const StatBox = styled.div`
   padding: 16px 18px 24px;
   border-radius: 8px;
   background-color: ${(props) => props.theme.colors[props.color] || props.theme.colors.gray2};
-
+  margin-right: ${(props) => (props.time ? '10px' : '0')};
   & > h4 {
     font: ${(props) => props.theme.fonts.h4};
     color: ${(props) => props.theme.colors.gray5};
