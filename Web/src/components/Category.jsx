@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Category = () => {
+const Category = ({ string }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -10,7 +10,7 @@ const Category = () => {
 
   return (
     <SelectCategory onClick={handleClick} isClicked={isClicked}>
-      #사회
+      #{string}
     </SelectCategory>
   );
 };
@@ -27,6 +27,7 @@ const SelectCategory = styled.button`
   margin-right: 10px;
   font-size: 16px;
   cursor: pointer;
+  margin-bottom: 10px;
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary1};

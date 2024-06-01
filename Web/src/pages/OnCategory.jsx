@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Category from '../components/Category';
 
+const tags = ['사회', '정치', '문화', '게임', 'IT', '연예', '스포츠'];
+
 const OnCategory = () => {
   const navigate = useNavigate();
 
@@ -23,11 +25,9 @@ const OnCategory = () => {
       </Title>
       <SubTitle>(최대 5개)</SubTitle>
       <CategoryContainer>
-        <Category />
-        <Category />
-        <Category />
-        <Category />
-        <Category />
+        {tags.map((tag) => (
+          <Category key={tag} string={tag} />
+        ))}
       </CategoryContainer>
       <Spacer />
       <BottomContainer>

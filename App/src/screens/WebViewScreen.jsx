@@ -34,7 +34,7 @@ const WebViewScreen = ({ userId }) => {
     <View style={styles.container}>
       <WebView
         ref={webviewRef}
-        source={{ uri: 'http://10.0.2.2:3000' }}
+        source={{ uri: 'http://10.0.2.2:3001/onboard' }}
         style={styles.webview}
         startInLoadingState={true}
         originWhitelist={['http://*', 'https://*', 'intent://*']}

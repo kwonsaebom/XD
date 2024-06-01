@@ -5,7 +5,7 @@ import pro from '../assets/images/pro.png';
 import bronze from '../assets/images/bronze.png';
 export const Mypage = () => {
   // const userId = useStore((state) => state.userId);
-  const userId = 'sunho329';
+  const userId = 'tester';
 
   return (
     <Container>
@@ -23,9 +23,10 @@ export const Mypage = () => {
           <br /> 잔디밭 확인하기
         </H2>
         <Field>
-          {Array.from({ length: 112 }, (_, i) => (
+          {Array.from({ length: 111 }, (_, i) => (
             <FieldBox key={i} />
           ))}
+          <FieldBox haha />
         </Field>
       </FieldWrapper>
       <StatsWrapper>
@@ -34,14 +35,14 @@ export const Mypage = () => {
             도파민 디톡스
             <br /> 총 성공 시간
           </h4>
-          <h1>30시간</h1>
+          <h1>0.3시간</h1>
         </StatBox>
         <StatBox color={'secondary3'}>
           <h4>
             도파민 디톡스
             <br /> 총 성공 횟수
           </h4>
-          <h1>9회</h1>
+          <h1>1회</h1>
         </StatBox>
       </StatsWrapper>
     </Container>
@@ -101,7 +102,7 @@ const Field = styled.div`
 `;
 
 const FieldBox = styled.div`
-  background-color: ${(props) => props.theme.colors.gray2};
+  background-color: ${(props) => (props.haha ? props.theme.colors.primary : props.theme.colors.gray2)};
   border-radius: 4px;
   /* aspect-ratio: 1 / 1; 정사각형을 유지하기 위해 추가 */
   width: 16px;

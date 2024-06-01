@@ -93,6 +93,7 @@ const MoveButton2 = styled.button`
   background-color: ${(props) => props.theme.colors.gray4};
   display: flex;
   width: 136px;
+  margin-left: 11px;
   padding: 12px 10px;
   border: none;
   justify-content: center;

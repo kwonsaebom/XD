@@ -158,7 +158,7 @@ const SelectCount = styled.button`
   color: ${({ isClicked, theme }) => (isClicked ? 'white' : theme.colors.secondary1)};
   border: none;
   border-radius: 17px;
-  padding: 10px 30px;
+  padding: 10px 15px;
   margin-right: 10px;
   font: ${(props) => props.theme.fonts.button2};
   cursor: pointer;

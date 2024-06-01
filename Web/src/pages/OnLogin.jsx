@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const OnLogin = () => {
   const navigate = useNavigate();
-  const [isUsernameAvailable, setIsUsernameAvailable] = useState(true);
+  const [isUsernameAvailable, setIsUsernameAvailable] = useState(false);
   const [username, setUsername] = useState('');
 
   const handlePreClick = () => {
@@ -17,6 +17,7 @@ export const OnLogin = () => {
 
   const handleCheckUsername = () => {
     setIsUsernameAvailable(true);
+    alert('사용 가능한 아이디입니다');
   };
 
   const handleChangeUsername = (event) => {
@@ -43,8 +44,10 @@ export const OnLogin = () => {
             value={username}
             onChange={handleChangeUsername}
           />
-          <CheckButton onClick={handleCheckUsername}>인증 완료</CheckButton>
-          {!isUsernameAvailable && <ErrorText>이미 사용 중인 아이디입니다.</ErrorText>}
+          <CheckButton onClick={handleCheckUsername} on={isUsernameAvailable}>
+            중복 확인
+          </CheckButton>
+          {/* {!isUsernameAvailable && <ErrorText>이미 사용 중인 아이디입니다.</ErrorText>} */}
         </InputContainer>
         <InputContainer>
           <Label>비밀번호</Label>
@@ -123,7 +126,7 @@ const Label = styled.label`
 `;
 
 const CustomInput = styled.input`
-  width: 257px;
+  width: 200px;
   height: 44px;
   border-radius: 5px;
   margin-right: 5px;
@@ -135,7 +138,7 @@ const CustomInput = styled.input`
 `;
 
 const Input = styled.input`
-  width: 343px;
+  width: 250px;
   height: 44px;
   border-radius: 5px;
   padding: 0 10px;
@@ -152,9 +155,9 @@ const CheckButton = styled.button`
   border: none;
   border-radius: 5px;
   border: 1px solid ${(props) => props.theme.colors.primary};
-  background-color: #e5fdee;
-  color: ${(props) => props.theme.colors.primary};
-  font: ${(props) => props.theme.fonts.h2};
+  background-color: ${(props) => (props.on ? '#e5fdee' : props.theme.colors.gray1)};
+  color: ${(props) => (props.on ? props.theme.colors.primary : props.theme.colors.black)};
+  font: ${(props) => props.theme.fonts.h4};
   cursor: pointer;
 
   &:hover {

@@ -114,7 +114,7 @@ export const TimeCounter = () => {
       </Box>
       {completeModal && <TimerSuccess onClose={SetCompleteModalfalse} />}
       {stopModal && <StopModal onClose={SetStopModalfalse} />}
-      <button onClick={() => setCompleteModal(true)}>모달 열기</button>
+      {/* <button onClick={() => setCompleteModal(true)}>모달 열기</button> */}
     </div>
   );
 };

@@ -5,9 +5,24 @@ import { useSwipeable } from 'react-swipeable';
 const YouTubePlayer = () => {
   const [cnt, setCnt] = useState(0);
   const intervalIdRef = useRef(null);
-  const [url, setUrl] = useState('vaHAz7Ht_uw');
+  const [url, setUrl] = useState('mjaP5RDhXAE');
   const [playnum, setPlaynum] = useState(0);
-  const playlist = ['PJ1qwQAA2VQ', '091slAwn95g', '7Csq_aCxIU0'];
+  const playlist = [
+    // 'PJ1qwQAA2VQ',
+    '091slAwn95g',
+    '7Csq_aCxIU0',
+    'nqJqOXp4hx0',
+    'fhhnCWXKcmU',
+    'wwnyzRXi1V4',
+    'jNtJ77shU9c',
+    'aQD444k_l4g',
+    'KylxHZV_qg8',
+    'wPJgQH5I3hY',
+    'r0XeXEDwwt0',
+    '3eN09VXylek',
+    'iXH-anJN8Mk',
+    '9TZaNgBBe3k',
+  ];
   const playerRef = useRef(null);
   const videoWatchedRef = useRef(false); // 새로운 ref 추가
 
