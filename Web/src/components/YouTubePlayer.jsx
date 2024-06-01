@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useSwipeable } from 'react-swipeable';
+import { useStore } from '../store/store';
 
 const YouTubePlayer = () => {
   const [cnt, setCnt] = useState(0);
@@ -25,6 +26,7 @@ const YouTubePlayer = () => {
   ];
   const playerRef = useRef(null);
   const videoWatchedRef = useRef(false); // 새로운 ref 추가
+  const setCurrentProgress = useStore((state) => state.setCurrentProgress);
 
   useEffect(() => {
     const tag = document.createElement('script');
@@ -94,6 +96,7 @@ const YouTubePlayer = () => {
         const duration = playerRef.current.getDuration();
         if (currentTime / duration > 0.5 && !videoWatchedRef.current) {
           setCnt((cnt) => cnt + 1);
+          setCurrentProgress(cnt + 1);
           videoWatchedRef.current = true; // 비디오가 50% 이상 재생된 상태로 업데이트
           clearInterval(intervalIdRef.current);
         }

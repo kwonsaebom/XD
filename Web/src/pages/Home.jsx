@@ -6,9 +6,7 @@ import bye_XCY from '../assets/images/cha4.png';
 import byebye_XCY from '../assets/images/cha3.png';
 import YouTubePlayer from '../components/YouTubePlayer';
 import { Navigate } from 'react-router';
-
-const maxProgress = 50;
-const currentProgress = 0;
+import { useStore } from '../store/store';
 
 export const Home = () => {
   const [youtubeshort, setYoutubeshort] = useState(false); //false로 설정하면 home, true로 하면 숏폼이 뜹니당~
@@ -37,6 +35,8 @@ export const Home = () => {
 };
 
 const FirstPage = ({ gotoshortform }) => {
+  const maxProgress = 50;
+  const currentProgress = useStore((state) => state.currentProgress);
   if (currentProgress === maxProgress) {
     return <FirstPage1 />;
   } else {
@@ -67,6 +67,8 @@ const FirstPage = ({ gotoshortform }) => {
 };
 
 const FirstPage1 = () => {
+  const maxProgress = 50;
+  const currentProgress = useStore((state) => state.currentProgress);
   const gototimer = () => {
     return <Navigate to="/timer" />;
   };
@@ -97,6 +99,8 @@ const FirstPage1 = () => {
 };
 
 const Youtubeshort = ({ gotohome }) => {
+  const maxProgress = 50;
+  const currentProgress = useStore((state) => state.currentProgress);
   if (currentProgress === maxProgress) {
     return <Youtubeshort2 currentProgress={currentProgress} gotohome={gotohome} />;
   } else {
@@ -118,6 +122,8 @@ const Youtubeshort = ({ gotohome }) => {
 };
 
 const Youtubeshort2 = ({ gotohome }) => {
+  const maxProgress = 50;
+  const currentProgress = useStore((state) => state.currentProgress);
   const gototimer = () => {
     return <Navigate to="/timer" />;
   };
