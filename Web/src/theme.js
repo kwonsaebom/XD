@@ -6,7 +6,7 @@ export const lightTheme = {
     h4: 'normal 400 14px/140% m',
     b1: 'normal 500 13px/140% m',
     b2: 'normal 500 12px/140% m',
-    button1_a: 'normal 700 18px/140% m',
+    button1_a: 'normal 600 18px/140% m',
     button1_b: 'normal 500 18px/140% m',
     button2: 'normal 500 14px/100% m',
     label: 'normal 400 12px/140% m',
