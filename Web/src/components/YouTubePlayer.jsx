@@ -46,8 +46,8 @@ const YouTubePlayer = () => {
 
   const initializePlayer = () => {
     playerRef.current = new window.YT.Player('player', {
-      width: '375px',
-      height: '672px',
+      width: '1000px',
+      height: '542px',
       videoId: url,
       events: {
         onReady: onPlayerReady,
@@ -79,7 +79,6 @@ const YouTubePlayer = () => {
   return (
     <div>
       <div id="player"></div>
-      <p>Count: {cnt}</p>
       <Block {...handlers} />
     </div>
   );
