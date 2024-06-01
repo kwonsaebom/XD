@@ -83,7 +83,7 @@ export const TimeCounter = () => {
             ).padStart(2, '0')}`}</div>
           </TextinBar>
         </ProgressBar>
-        <StopButton>중도포기하기</StopButton>
+        <StopButton onClick={() => setStopModal(true)}>중도포기하기</StopButton>
       </Box>
       <Box>
         <Character>
@@ -100,7 +100,6 @@ export const TimeCounter = () => {
       {completeModal && <TimerSuccess onClose={SetCompleteModalfalse} />}
       {stopModal && <StopModal onClose={SetStopModalfalse} />}
       <button onClick={() => setCompleteModal(true)}>모달 열기</button>
-      <button onClick={() => setStopModal(true)}>모달 열기</button>
     </div>
   );
 };

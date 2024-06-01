@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Xbutton } from '../assets/images/Xbutton.svg';
+import { useNavigate } from 'react-router';
 export const TimerSuccess = ({ onClose }) => {
+  const navigate = useNavigate();
+  const handleMove = () => {
+    navigate('/mypage');
+  };
   return (
     <ModalOverlay>
       <ModalContent>
@@ -10,7 +15,7 @@ export const TimerSuccess = ({ onClose }) => {
         <div className="desc">도파민 디톡스를 성공하셨습니다</div>
         <img src="https://via.placeholder.com/150" alt="grade" />
         <div className="desc2">브론즈 등급을 부여받았습니다</div>
-        <MoveButton>잔디밭 확인하러 가기</MoveButton>
+        <MoveButton onClick={handleMove}>잔디밭 확인하러 가기</MoveButton>
       </ModalContent>
     </ModalOverlay>
   );

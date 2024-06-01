@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Xbutton } from '../assets/images/Xbutton.svg';
+import Xcy from '../assets/images/xcy_cry.png';
+
 export const StopModal = ({ onClose }) => {
   return (
     <ModalOverlay>
@@ -8,9 +10,9 @@ export const StopModal = ({ onClose }) => {
         <Xbuttons onClick={onClose} width="24" height="24" />
         <div className="cele">정말 포기하실 건가요?</div>
         <div className="desc">조금만 더 힘내보세요</div>
-        <img src="https://via.placeholder.com/150" alt="grade" />
+        <img src={Xcy} alt="grade" />
         <div className="buttons">
-          <MoveButton1>돌아가기</MoveButton1>
+          <MoveButton1 onClick={onClose}>돌아가기</MoveButton1>
           <MoveButton2>포기하기</MoveButton2>
         </div>
       </ModalContent>
@@ -55,7 +57,6 @@ const ModalContent = styled.div`
     margin-top: 21px;
     width: 150px;
     height: 150px;
-    border-radius: 50%;
   }
   .buttons {
     margin-top: 36px;
