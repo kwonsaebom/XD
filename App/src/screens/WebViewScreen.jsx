@@ -9,8 +9,7 @@ const WebViewScreen = ({ userId }) => {
     if (webviewRef.current && userId !== '') {
       const script = `
         (function() {
-          const event = new MessageEvent('message', { data: '${userId}' });
-          document.dispatchEvent(event);
+          window.postMessage('${userId}',"*");
         })();
       `;
       webviewRef.current.injectJavaScript(script);

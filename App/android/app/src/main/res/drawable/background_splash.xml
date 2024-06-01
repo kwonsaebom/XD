@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/splash_background"/> <!-- 배경색을 흰색으로 설정 -->
+    <!-- 다른 배경색으로 변경하려면 -->
+    <!-- <item android:drawable="@android:color/your_color_name"/> -->
+</layer-list>

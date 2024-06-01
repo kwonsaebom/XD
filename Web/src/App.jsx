@@ -3,10 +3,27 @@ import { Home, OnBoarding, Timer, Mypage, OnShortForm, OnTimer, OnCheck, OnLogin
 import { Example } from './components/example';
 import { Navbar } from './components/Navbar';
 import OnCategory from './pages/OnCategory';
-
+import { useEffect, useState } from 'react';
 function App() {
   const location = useLocation();
   const noNavRoutes = ['/onboard', '/ontimer', '/onshortform', '/oncheck', '/onlogin'];
+  const [userId, setUserId] = useState('');
+
+  useEffect(() => {
+    const handleMessage = (event) => {
+      const receivedUserId = event.data;
+      setUserId(receivedUserId);
+      console.log('Received userId from WebView:', receivedUserId);
+    };
+
+    window.addEventListener('message', handleMessage);
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
+
   return (
     <>
       {!noNavRoutes.includes(location.pathname) && <Navbar />}
