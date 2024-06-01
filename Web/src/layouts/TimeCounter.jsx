@@ -5,17 +5,21 @@ import styled from 'styled-components';
 import ProgressProvider from '../components/ProgressProvider';
 import { TimerSuccess } from '../components/TimerSuccess';
 import { StopModal } from '../components/StopModal';
+import xcy_concentraiton from '../assets/images/xcy_concentrait.png';
+import xcy_lowstress from '../assets/images/xcy_lowstress.png';
+import xcy_strong from '../assets/images/xcy_strong.png';
+
 const characters = [
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_concentraiton,
     name: '집중력 향상',
   },
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_lowstress,
     name: '스트레스 감소',
   },
   {
-    src: 'https://via.placeholder.com/150',
+    src: xcy_strong,
     name: '통제력 강화',
   },
 ];
@@ -173,7 +177,7 @@ const Character = styled.div`
     align-items: center;
     gap: 6px;
     img {
-      width: 58px;
+      width: 77px;
       height: 58px;
       border-radius: 50%;
     }
