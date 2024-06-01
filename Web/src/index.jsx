@@ -11,8 +11,10 @@ root.render(
   <BrowserRouter>
     <React.Suspense fallback={<div>Loading... </div>}>
       <ThemeProvider theme={lightTheme}>
-        <App />
-      </ThemeProvider> 
+        <div className="container">
+          <App />
+        </div>
+      </ThemeProvider>
     </React.Suspense>
   </BrowserRouter>
 );
